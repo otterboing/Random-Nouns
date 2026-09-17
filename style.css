@@ -1,0 +1,109 @@
+html,body {padding: 0; margin: 0; font-family: system-ui;}
+
+.area,[area] {position: absolute; width: 100%; height: 100%;}
+
+button,input {
+    padding: 0.25rem;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    outline: none!important;
+}
+
+button:focus,button:hover,input:focus,input:hover {
+    border-left: 2px solid blue; 
+    border-right: 2px solid blue;
+}
+
+button,input[type="checkbox"] {
+    cursor: pointer;
+    user-select: none!important;
+}
+
+span {
+    user-select: none;
+}
+
+a:not(:hover,:focus) { 
+    text-decoration: none;
+}
+
+a:not(:Not(:hover,:focus)) {
+    text-decoration: underline;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#app #center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#app #center #words-list {
+    animation: forwards words_make 0.15s;
+    width: 75%;
+    display: flex;
+    flex-wrap: balance;
+    gap: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    transform-origin: bottom;
+    user-select: all;
+    font-size: 3rem;
+}
+
+@keyframes press {
+    0% {scale: 0.95;}
+    100% {scale: 1;}
+}
+
+@keyframes words_make {
+    0% {scale: 1 0.85;}
+    100% {scale: 1;}
+}
+
+#generate_words {
+    transition: scale 0.15s;
+}
+
+#generate_words:active {
+    transition: scale 0.01s;
+    scale: 0.95;
+}
+
+/* :not(#app #center #words-list) {
+    user-select: none;
+} */
+
+/* #app #center .word {
+    padding: 0.5rem;
+    background-color: grey;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 2rem;
+} */
+
+#options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#options #wordsAmount {
+    width: 3rem;
+}
+
+#options #wordSpacer {
+    width: 4rem;
+}
