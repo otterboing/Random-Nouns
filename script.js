@@ -33,15 +33,26 @@ capitalize = function (string) {
     return string.slice(0,1).toUpperCase() + string.slice(1);
 }
 
+function clamp(value,min,max) {
+    return value < min ? min : value > max ? max : value;
+}
+
+function randInt(min,max) {
+    return clamp(Math.round(Math.random() * max),min,max);
+}
+
 function update_words() {
     wordsList.remove();
     wordsList = document.querySelector('#app #center').insertAdjacentElement('afterbegin',document.createElement('div'));
     wordsList.id = 'words-list';
+    wordsTEMP = [];
     runtime.current_words.forEach(word => {
-        if (runtime.uppercase) {
-            word = capitalize(word);
-        }
-        wordsList.insertAdjacentHTML('beforeend',templates.wordElement.replaceAll('%WORD%',word).replaceAll('%SPACER%',runtime.word_spacer));});
+        wordsTEMP.push(runtime.uppercase ? capitalize(word) : word);
+    });
+    wordsList.insertAdjacentHTML('beforeend',wordsTEMP.join(runtime.word_spacer));
+    if (runtime.auto_copy) {
+        copyWords();
+    }
 }
 
 async function loadWords() {
