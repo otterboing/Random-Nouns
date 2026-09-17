@@ -9,7 +9,7 @@ button,input {
     outline: none!important;
 }
 
-button:focus,button:hover,input:focus,input:hover {
+button:focus,input:focus {
     border-left: 2px solid blue; 
     border-right: 2px solid blue;
 }
