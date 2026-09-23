@@ -8,13 +8,15 @@
 <body>
 <div area id="app">
 <div style="position: absolute; left: 5px; bottom: 5px; color: grey; display: flex; flex-direction: row; juftify-content: center; align-items: center; gap: 0.5rem; font-size: 0.80rem; font-weight: lighter;">
-    <span>Time Spent On this: 3h 0min</span>
-    <a target="_blank" href="https://github.com/otterboing/Random-Nouns" style="color: grey!important;"><img src="assets/GitHub_Invertocat_Black.svg" style="width: 0.80rem; height: 0.80rem; user-select: none; -webkit-user-drag: none; -moz-user-drag: none;"> GitHub</a></div>
+    <span>Time Spent On this: 4h 0min</span>
+    <a target="_blank" href="https://github.com/otterboing/Random-Nouns" style="color: grey!important;"><img src="assets/GitHub_Invertocat_Black.svg" style="width: 0.80rem; height: 0.80rem; user-select: none; -webkit-user-drag: none; -moz-user-drag: none;"> GitHub</a>
+    <span style="margin-left: 0.5rem; color: rgba(100,100,100);"><b>(E for new words, S to save word)</b></span>
+</div>
 <div id="center">
     <div id="words-list">
         Make Words!
     </div>
-        <button id="generate_words" onclick="populateWords(); if (runtime.auto_copy) {copyWords();}" style="margin: 1rem; padding: 0.5rem; background-color: black; color: white; font-size: 1.25rem;">New Words</button>
+        <button id="generate_words" onclick="populateWords();" style="margin: 1rem; padding: 0.5rem; background-color: black; color: white; font-size: 1.25rem;">New Words</button>
         <div id="options">
         <span>Amount:</span>
         <input id="wordsAmount" type="number" min="0" value="2" onchange="runtime.words_amount = this.value">
@@ -25,9 +27,13 @@
         <input type="checkbox" onchange="runtime.auto_copy = !!this.checked;">
         <span>Capitalize:</span>
         <input id="capitalize_words" type="checkbox" onclick="runtime.uppercase = !!this.checked; update_words(); if (runtime.auto_copy) {copyWords();}">
+        <span> : </span>
+        <button alt="Save Word" onclick="addWordsave(wordsList.innerText);">Save</button>
     </div>
     <div><span>Warning : </span><span style="color: darkred; font-weight: bold;">Words May Make Or Contain Swear Words.</span></div>
     <div style="display: flex; flex-direction: column; text-align: center;"><span>Words taken from : </span><a target="_blank" href="https://github.com/sapics/noun-json/blob/master/output.js">https://github.com/sapics/noun-json/blob/master/output.js</a><a target="_blank" href="https://github.com/sapics/noun-json/blob/master/LICENSE">MIT License</a></div>
+    <div id="saved-words">
+    </div>
 </div>
 </div>
 <script src="script.js"></script>
